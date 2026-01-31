@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>jalya001</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<template id="cardTemplate">
+  <div class="card">
+  <a class="link" target="_blank">
+    <div class="card-inner">
+      <h3 class="card-title"></h3>
+      <p class="card-text"></p>
+    </div>
+  </a>
+</div>
+</template>
+
+<template id="skillTemplate">
+  <div class="skill">
+    <span class="skill-name"></span>
+    <div class="bar">
+      <div class="fill"></div>
+    </div>
+    <span class="level-label"></span>
+  </div>
+</template>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>jalya001</h1>
+    </div>
+  </header>
+
+  <section id="projects">
+      <div class="container">
+        <h2>Projects</h2>
+        <div class="container cards-grid" id="cardsContainer"></div>
+      </div>
+  </section>
+
+  <section class="skills">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skill-container">
+        <div class="skill-column">
+          <h3>Programming Languages</h3>
+          <div id="skillsPLanguages"></div>
+        </div>
+        <div class="skill-column">
+          <h3>Frameworks</h3>
+          <div id="skillsFrameworks"></div>
+        </div>
+        <div class="skill-column">
+          <h3>Natural Languages</h3>
+          <div id="skillsLanguages"></div>
+        </div>
+        <div class="skill-column">
+          <h3>Platforms</h3>
+          <div id="skillsPlatforms"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+    
+  <section id="development">
+    <div class="container">
+      <h2>On Development Overheads</h2>
+      <p>Development is now recognized as a continuous, often iterative process, no longer following the model of "one-and-done" stages, owing to the rarity of knowing all the constraints of a project beforehand. There, outside of production itself (which most developers are well familiar with), there are the following overheads to consider:</p>
+      <ul>
+        <li><b>Coordination:</b> Like in multithreading, where it only pays off when the threads indeed split the work, rather than repeat it, entangle in communication, or idle, coordination works much the same. And coordination is not only between you and team members, but also the present and future you. The purpose is to ensure workers always have clear ways to contribute with minimal barriers between work that has been or is being done, and the work another worker shall do. So, hold sessions to divide responsibilities, make explicit interfaces and document them, make code self-documenting, and so on.</li>
+        <li><b>Design:</b> You have your bullet points of requirements, and now you need to weave them together. For non-trivial tasks, there is inevitably theory-crafting involved, be that algorithms, computer mechanics, or psychology, for a theoretically sufficient design. And after you have finished your first draft, it sometimes turns out to be misfit when faced with something you lacked foreknowledge of or a changing constraint. So for elaborate plans, it is critical to very assumptions you make underway.</li>
+        <li><b>Reviews:</b> Few applications in the real world live in simple boxes, and are instead often interconnected or too complicated for a single person to grasp, in which there are nigh-infinite ways things go wrong or suboptimal. For this, you often have formal standards and tools, often for quality assessment, automatic tests, rewriting, security, etc. Despite that, this is inevitably also a discrete process, since no standards nor tools cover every real world case, and the real world keeps evolving, be it new laws, shifting demands, or threat actors. You need to be actively looking for potential problems to squash. Similarly, even when making something simple, there is always the chance of subtle defects, although the holes are feasible to all eventually patch up.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="codequality">
+    <div class="container">
+      <h2>On Code Quality</h2>
+      <p>I find the quality of code is broadly measurable in three parts:</p>
+      <ul>
+        <li><b>Correctness:</b> Beyond that your program runs and returns a believable result at all, it needs to theoretically always behave as expected. This is firstly in a design that leaves no unintended inaccuracy or edge case. And is with designs, even when your theory is right, your implementation is not guaranteed to be, so you need to conceive tests for all representative inputs, or when dealing with probabilities, verify the expected tendencies. However, some cases have no tractably verifiable correctness, when say there are too many representative inputs to test them all (like in world simulations), which increases the importance of discrete reviews.</li>
+        <li><b>Performance:</b> How efficient your solution is. In mature ecosystems, this is mostly in selecting the right stack for a job, and using it as intended. But sometimes there is no great technology to plug-and-play, or all current technologies for it are too bloated, and you need to either duct tape in a suboptimal solution or time-consumingly develop one. When developing one, you first need to consider the cheapest ways of theoretically representing and solving the problem, and then optimize it for machine-ergonomics. Note that if you want to avoid tripping into a local maximum, it is necessary for performance to be a design consideration, rather than something you do after the fact.</li>
+        <li><b>Maintainability:</b> A measure of how easy it is to review and further develop your solution. That is, how human-ergonomic it is. This is not a simple quality to adjust for, since often what is so, is less machine-ergonomic, and one needs make complicated low or no-cost abstractions to maximize both worlds. Unlike with the two qualities above, maintainability has no perfect solutions, and is done in a much larger share by emergent intuition than pre-planning. Still, there are some generalities like following norms, centralization, consolidating repetitive code, separating concerns, and strongest of all, simplicity.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: jalya001jalya001@gmail.com</p>
+    </div>
+  </section>
+
+  <footer><div class="container"><p></p></div></footer>
+
+  <script>
+    const projectsData = [
+      { title: "Solar Panels Android App", text: `Fetches data from Norway's weather stations to estimate solar panel yield, among other features.
+      More or less production-grade.
+      Built with Kotlin in Android Studio.
+      Made in a group of 6 using Github and Agile practices.
+      I worked mainly with Frost MET API, processing of weather data, and on code quality.
+      Development process and design documented in a report.`, link: "https://github.com/jalya001/Solar-panel-Optimized-Living"},
+      { title: "Catalogue Website Template", text: `Website and server for displaying wares.
+      Built with JavaScript in Next.js React.
+      Uses a MySQL database under an admin-interface. 
+      Has some built-in customizability, which is what allows it to serve as a template.
+      No (known) breaking bugs, but not fully polished.`, link: "https://github.com/jalya001/catalogue-site-template" },
+      { title: "ANTLR Drone Language", text: `A domain-specific language for maneuvering a drone.
+      Built with Java using ANTLR and Gradle.
+      Follows some rather eccentric specifications.
+      Design choices documented in a report.`, link: "https://github.com/jalya001/antlr-drone-language" },
+      { title: "Frost API Wrapper", text: `Library for fetching and processing data from Frost MET, with a few methods for approximating data.
+      Old version built with Kotlin.
+      New work-in-progress version built with C++.`, link: "https://github.com/jalya001/frost-met-wrapper" },
+    ];
+
+    const container = document.getElementById("cardsContainer");
+    const template = document.getElementById("cardTemplate");
+
+    projectsData.forEach(data => {
+      const clone = template.content.cloneNode(true);
+      clone.querySelector(".card-title").textContent = data.title;
+
+      const description = document.createElement("p");
+      description.textContent = data.text.split('\n')[0];
+      clone.querySelector(".card-text").appendChild(description);
+
+      const list = document.createElement("ul");
+      const items = data.text.split('\n').slice(1);
+      items.forEach(item => {
+        if (item.trim() !== "") {
+          const li = document.createElement("li");
+          li.textContent = item;
+          list.appendChild(li);
+        }
+      });
+      clone.querySelector(".card-text").appendChild(list);
+
+      clone.querySelector(".link").href = data.link;
+      container.appendChild(clone);
+    });
+
+
+    const skillTemplate = document.getElementById("skillTemplate");
+    const fillSkills = (skills, containerId) => {
+      const skillContainer = document.getElementById(containerId);
+      skills.forEach(skill => {
+        const clone = skillTemplate.content.cloneNode(true);
+        clone.querySelector(".skill-name").textContent = skill.name;
+        clone.querySelector(".fill").style.width = `${skill.level}%`;
+        clone.querySelector(".level-label").textContent = skill.label;
+        skillContainer.appendChild(clone);
+      });
+    };
+
+    const planguageSkills = [
+      { name: "Python", level: 75, label: "Skilled" },
+      { name: "JavaScript", level: 75, label: "Skilled" },
+      { name: "Java", level: 75, label: "Skilled" },
+      { name: "Kotlin", level: 65, label: "Skilled" },
+      { name: "C/C++", level: 65, label: "Skilled" },
+      { name: "SQL", level: 45, label: "Intermediate" },
+      { name: "Lisp-Scheme", level: 45, label: "Intermediate" },
+      { name: "Assembly", level: 15, label: "Basic" },
+    ];
+
+    const frameworkSkills = [
+      { name: "React", level: 55, label: "Intermediate" },
+      { name: "Android Studio", level: 50, label: "Intermediate" },
+      { name: "ANTLR", level: 45, label: "Intermediate" },
+      { name: "NeutralinoJS", level: 40, label: "Intermediate" }, // It's insignificant, but why not
+    ];
+
+    const languageSkills = [
+      { name: "English", level: 100, label: "Fluent" },
+      { name: "Norwegian", level: 100, label: "Native" },
+      { name: "Old English", level: 35, label: "Intermediate" },
+      { name: "Spanish", level: 20, label: "Basic" },
+    ];
+
+    const platforms = [
+      { name: "Web, Browser", level: 65, label: "Skilled" },
+      { name: "Github", level: 50, label: "Intermediate" },
+      { name: "Linux", level: 20, label: "Basic" },
+      { name: "Windows", level: 10, label: "Basic" },
+      { name: "Android", level: 10, label: "Basic" },
+    ];
+
+    fillSkills(planguageSkills, "skillsPLanguages");
+    fillSkills(frameworkSkills, "skillsFrameworks");
+    fillSkills(languageSkills, "skillsLanguages");
+    fillSkills(platforms, "skillsPlatforms");
+  </script>
+
+</body>
+</html>

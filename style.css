@@ -1,0 +1,161 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  background-color: #1B1E1F;
+  color: #e1e1e1;
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  padding: 1rem;
+}
+
+a {
+  color: #3391FF;
+}
+
+header {
+  background-color: #262A2B;
+  padding: 2rem 0;
+  text-align: center;
+}
+
+section {
+  padding: 2rem 0;
+}
+
+h2 {
+  border-bottom: 2px solid #eee;
+  padding-bottom: 0.5rem;
+}
+
+h3 {
+    font-size: larger;
+}
+
+.skills-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.skills-list li {
+  background: #24292e;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+}
+
+footer {
+  padding: 1rem 0;
+  background-color: #262A2B;
+  margin-top: 2rem;
+}
+
+
+
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.card {
+  background: rgb(46, 48, 54);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  will-change: transform;
+  transition: 
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+.card-inner {
+  padding: 1.5rem;
+  box-sizing: border-box;
+  height: 100%;
+}
+
+.card-text ul {
+  padding-left: calc(1.5rem - 8px);
+  margin: 0;
+  list-style-type: disc;
+}
+
+@media (min-width: 768px) {
+  .cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.skills-section h2 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 0.5rem;
+}
+
+.skill-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+
+.skill-column {
+  flex: 1 1 400px;
+  max-width: 500px;
+}
+
+.skill {
+  margin-bottom: 1.5rem;
+}
+
+.skill-name {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.bar {
+  background: #333;
+  border-radius: 20px;
+  overflow: hidden;
+  height: 10px;
+  margin-bottom: 0.3rem;
+}
+
+.fill {
+  background: #5171b5;
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.5s ease;
+}
+
+.level-label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container > ul > li {
+  margin-bottom: 8px;
+}
+
+.container > ul > li:last-child {
+  margin-bottom: 0;
+}
